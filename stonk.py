@@ -15,6 +15,7 @@ def main():
     """
     return
 
+# GRAB COMMAND
 @main.command()
 @click.option(
     "--ticker",
@@ -25,14 +26,23 @@ def grab(ticker):
     """
     Pull in stock data from API
     """
-    print(grab_function.main(f"{ticker}"))
+    # print(grab_function.main(f"{ticker}"))
+    grab_function.main(f"{ticker}")
+    print("DONE grabbing")
     
+# CLEAR COMMAND
 @main.command()
-def clear():
+@click.option(
+    "--ticker",
+    prompt="Ticker of stock to delete",
+    help="Pass in the ticker of the stock to delete (i.e AAPL).")
+    
+def clear(ticker):
     """
     Clear all stock data from the database
     """
-    print(clear_function.main())
+    clear_function.main(f"{ticker}")
+    print("DONE deleting")
 
 if __name__ == '__main__':
     main()

@@ -3,6 +3,7 @@ import json
 import boto3
 
 def main(ticker):
+    print(f"Making a request to API for {ticker} and adding to database...")
     # Pulls the data from the API
     response = pullData(ticker)
     
@@ -30,23 +31,20 @@ def addToDynamoDB(resp):
     dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
     table = dynamodb.Table('WeeklyStock')
     
-    content = []
+    with table.batch_writer() as batch:
 
-    for row in resp['Weekly Time Series']:
-        item = {
-            'ticker': resp['Meta Data']['2. Symbol'],
-            'date': row,
-            'open': resp['Weekly Time Series'][row]['1. open'],
-            'high': resp['Weekly Time Series'][row]['2. high'],
-            'low': resp['Weekly Time Series'][row]['3. low'],
-            'close': resp['Weekly Time Series'][row]['4. close'],
-            'volume': resp['Weekly Time Series'][row]['5. volume']
-        }
-        
-        content.append(item)
-    
-    for entry in content:
-        table.put_item(Item=entry)
+        for row in resp['Weekly Time Series']:
+            item = {
+                'ticker': resp['Meta Data']['2. Symbol'],
+                'date': row,
+                'open': resp['Weekly Time Series'][row]['1. open'],
+                'high': resp['Weekly Time Series'][row]['2. high'],
+                'low': resp['Weekly Time Series'][row]['3. low'],
+                'close': resp['Weekly Time Series'][row]['4. close'],
+                'volume': resp['Weekly Time Series'][row]['5. volume']
+            }
+            
+            batch.put_item(item)
 
 if __name__ == '__main__':
     # pylint: disable=no-value-for-parameter
