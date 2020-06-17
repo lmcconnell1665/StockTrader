@@ -39,7 +39,7 @@ def grab(ticker):
     
 def clear(ticker):
     """
-    Clear all stock data from the database
+    Clear stock data from the database
     """
     clear_function.main(f"{ticker}")
     print("DONE deleting")

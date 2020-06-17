@@ -3,3 +3,5 @@ pylint
 click
 requests
 boto3
+pandas
+numpy

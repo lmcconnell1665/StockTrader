@@ -20,7 +20,8 @@ def pullData(ticker):
       'symbol': ticker,
       'apikey': token,
       'function': function,
-      'datatype': 'json'
+      'datatype': 'json',
+      'outputsize': 'full'
     }
     
     response = requests.request('GET', url, params=params)
