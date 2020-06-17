@@ -1,4 +1,4 @@
-virtenv:
+setup:
 	source ~/.StockTrader/bin/activate
 	
 install:
