@@ -1,5 +1,4 @@
 import requests
-import json
 import boto3
 
 def main(ticker):
