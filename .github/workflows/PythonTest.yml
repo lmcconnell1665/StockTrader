@@ -24,6 +24,13 @@ jobs:
       run: |
         make lint
         
+    - name: Configure-AWS-credentials
+      uses: aws-actions/configure-aws-credentials@v1
+      with:
+        aws-access-key-id: ${{ secrets.WEEKLYSTOCK_DB_ACCESS_ID }}
+        aws-secret-access-key: ${{ secrets.WEEKLYSTOCK_DB_ACCESS_KEY }}
+        aws-region: us-east-1
+        
     - name: Test with pytest
       run: |
         make test
