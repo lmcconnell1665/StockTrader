@@ -15,8 +15,8 @@ The environment that you install the command line tool in will also need the pro
 
 ## To use this tool
 There are two primary commands with this tool, grab and clear.
-- grab: Pull in stock data from API
-- clear: Clear all stock data from the database
+- grab: pull in stock data from API
+- clear: clear all stock data from the database
 
 Each command requires one argument (--ticker), which is the ticker that corresponds to the stock that you want to grab or clear.
 
@@ -32,4 +32,4 @@ Once you see `DONE grabbing` the stocks historical information has been saved to
 ### Clear command
 Run `python stonk.py clear` from a terminal with your directory in `/StockTrader`.
 You will be asked to enter a `ticker` for the stock you want to clear.
-Once you see `DONE deleting` the stocks historical information has been saved to the DynamoDB table.
+Once you see `DONE deleting` the stocks historical information has been removed from the DynamoDB table.
