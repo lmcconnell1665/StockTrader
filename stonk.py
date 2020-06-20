@@ -33,16 +33,22 @@ def main():
 # GRAB COMMAND
 @main.command()
 @click.option(
+    "--api_token",
+    prompt="Token to authenticate with API",
+    help="Pass in the token to authenticate with the API.",
+    default=TOKEN)
+
+@click.option(
     "--ticker",
     prompt="Ticker of stock to grab",
     help="Pass in the ticker of the stock to grab (i.e AAPL).")
     
-def grab(ticker):
+def grab(ticker, api_token):
     """
     Pull in stock data from API
     """
     # print(grab_function.main(f"{ticker}"))
-    grab_function.main(f"{ticker}", DYNAMO_DB_TABLE_NAME, AWS_REGION, URL, TOKEN, TIMEFRAME)
+    grab_function.main(f"{ticker}", DYNAMO_DB_TABLE_NAME, AWS_REGION, URL, f"{api_token}", TIMEFRAME)
     print("DONE grabbing")
     
 # CLEAR COMMAND

@@ -22,6 +22,10 @@ Each command requires one argument (--ticker), which is the ticker that correspo
 
 ### Grab command
 Run `python stonk.py grab` from a terminal with your directory in `/StockTrader`.
+You will be asked to enter an `api_key` to authenticate with the API.
+You can set a default for this key by changing the value for `TOKEN` in `stonk.py`.
+Once a default is set it will be displayed in brackets.
+Just press `enter` to use the saved default value for the token.
 You will be asked to enter a `ticker` for the stock you want to grab.
 Once you see `DONE grabbing` the stocks historical information has been saved to the DynamoDB table.
 
