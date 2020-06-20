@@ -14,7 +14,7 @@ AWS_REGION = 'us-east-1'
 URL = 'https://www.alphavantage.co/query?'
 
 # API Token used to authenticate with the API (You can get one for free at https://www.alphavantage.co)
-TOKEN = 'Z0XJ5BZAJ049UV97'
+TOKEN = ''
 
 # The data set that should be targeted (options are in AlphaVantage documentation)
 TIMEFRAME = 'TIME_SERIES_WEEKLY'
