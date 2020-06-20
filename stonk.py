@@ -10,13 +10,13 @@ DYNAMO_DB_TABLE_NAME = 'WeeklyStock'
 # AWS Region where the DynamoDB table is located
 AWS_REGION = 'us-east-1'
 
-# URL of the API that is providing stock data (AlpineVantage used when built)
+# URL of the API that is providing stock data (AlphaVantage used when built)
 URL = 'https://www.alphavantage.co/query?'
 
 # API Token used to authenticate with the API (You can get one for free at https://www.alphavantage.co)
 TOKEN = 'Z0XJ5BZAJ049UV97'
 
-# The data set that should be targeted (options are in AlpineVantage documentation)
+# The data set that should be targeted (options are in AlphaVantage documentation)
 TIMEFRAME = 'TIME_SERIES_WEEKLY'
 
 @click.group(context_settings=CONTEXT_SETTINGS) 
