@@ -1,20 +1,20 @@
 import requests
 import boto3
 
-def main(ticker):
+def main(ticker, table_name, aws_region, api_url, api_token, time_frame):
     print(f"Making a request to API for {ticker} and adding to database...")
     # Pulls the data from the API
-    response = pullData(ticker)
+    response = pullData(ticker, api_url, api_token, time_frame)
     
     # Adds the data to the dynamoDB
-    addToDynamoDB(response.json())
+    addToDynamoDB(response.json(), table_name, aws_region)
     
     return(response.status_code)
     
-def pullData(ticker):
-    url = 'https://www.alphavantage.co/query?'
-    token = 'Z0XJ5BZAJ049UV97'
-    function = "TIME_SERIES_WEEKLY"
+def pullData(ticker, api_url, api_token, time_frame):
+    url = api_url
+    token = api_token
+    function = time_frame
     
     params = {
       'symbol': ticker,
@@ -26,9 +26,9 @@ def pullData(ticker):
     response = requests.request('GET', url, params=params)
     return(response)
     
-def addToDynamoDB(resp):
-    dynamodb = boto3.resource('dynamodb', region_name='us-east-1')
-    table = dynamodb.Table('WeeklyStock')
+def addToDynamoDB(resp, table_name, aws_region):
+    dynamodb = boto3.resource('dynamodb', region_name=aws_region)
+    table = dynamodb.Table(table_name)
     
     with table.batch_writer() as batch:
 
