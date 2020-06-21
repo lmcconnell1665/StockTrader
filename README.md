@@ -34,5 +34,5 @@ Run `python stonk.py clear` from a terminal with your directory in `/StockTrader
 You will be asked to enter a `ticker` for the stock you want to clear.
 Once you see `DONE deleting` the stocks historical information has been removed from the DynamoDB table.
 
-## Demo
-[![Demo of StockTrader Command Line Tool](http://img.youtube.com/vi/tU_yvEbdsPE/0.jpg)](http://www.youtube.com/watch?v=tU_yvEbdsPE "Demo: Storing Stock API Data in DynamoDB")
+## Demo: Storing Stock API Data in DynamoDB
+<div align=”center”>[![Demo: Storing Stock API Data in DynamoDB](http://img.youtube.com/vi/tU_yvEbdsPE/0.jpg)](http://www.youtube.com/watch?v=tU_yvEbdsPE "Demo: Storing Stock API Data in DynamoDB")</div>
